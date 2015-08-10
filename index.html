@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <title>**CATAFRATT GAME</title>
+
+        
+
+        <meta name="description" content="CATAFRATT GAME">
+
+        <meta name="keywords" content="diprè, andrea, peppe, simone, fetish, catafratto, html5, rosario, muniz, sibaritico, edoardo, casella, civile">
+
+        <meta name="author" content="http://www.edoardocasella.it">
+
+        <meta charset="UTF-8">
+
+
+
+        <meta property="og:url" content="http://www.projects.edoardocasella.it/catafrattgame/" />
+
+        <meta property="og:site_name" content="CATAFRATT GAME" />
+
+        <meta property="og:type" content="website" />
+
+        <meta property="og:title" content="CATAFRATT GAME" />
+
+        <meta property="og:image" content="http://www.projects.edoardocasella.it/catafrattgame/src/thumb.png" />
+
+        <meta property="og:description" content="Catafratt game, HTML5 memoriy cards game based on the characters of Andrea Diprè" />
+
+        <link rel="icon"  type="image/png" href="favicon.png">
+
+		<link rel="image_src" href="http://www.projects.edoardocasella.it/catafrattgame/src/thumb.png" / >
+
+		
+
+		
+
+        <link href='http://fonts.googleapis.com/css?family=Boogaloo' rel='stylesheet' type='text/css'>
+
+        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
+
+        
+
+        <script type="text/javascript">
+
+            /*Request animation frame*/
+
+            (function () {
+
+                requestAnimationFrame = window.requestAnimationFrame
+
+                         || window.mozRequestAnimationFrame
+
+                         || window.webkitRequestAnimationFrame
+
+                         || window.msRequestAnimationFrame;
+
+
+
+                if (requestAnimationFrame)
+
+                    window.requestAnimationFrame = requestAnimationFrame;
+
+
+
+                cancelRequestAnimFrame = (function () {
+
+                    return window.cancelAnimationFrame ||
+
+                        window.webkitCancelRequestAnimationFrame ||
+
+                        window.mozCancelRequestAnimationFrame ||
+
+                        window.oCancelRequestAnimationFrame ||
+
+                        window.msCancelRequestAnimationFrame ||
+
+                        clearTimeout
+
+                })();
+
+
+
+                if (cancelRequestAnimFrame)
+
+                    window.cancelAnimationFrame = cancelRequestAnimFrame;
+
+            })();
+
+        </script>
+
+		
+
+        <!-- GAME CORE -->
+
+        <script type="text/javascript" src="js/Modernizr-custom.js"></script>
+
+        <script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
+
+        
+
+        <script type="text/javascript" src="js/glob.js"></script>
+
+        <script type="text/javascript" src="js/card.js"></script>
+
+        <script type="text/javascript" src="js/Input.js"></script>
+
+        <script type="text/javascript" src="js/ImageLoader.js"></script>
+
+        <script type="text/javascript" src="js/SoundLoader.js"></script>
+
+        <script type="text/javascript" src="js/rank.js"></script>
+
+        <script type="text/javascript" src="js/renderer.js"></script>
+
+        <script type="text/javascript" src="js/time.js"></script>
+
+        <script type="text/javascript" src="js/wre.js"></script>
+
+        <script type="text/javascript" src="js/main.js"></script>
+
+
+
+        <!-- STYLESHEET -->
+
+        <link rel="stylesheet" href="css/style.css"/>
+
+    </head>
+
+
+
+
+
+    <body>
+
+        
+
+        <div id="advice" style="display:none; background:white; z-index:999; padding:10px; text-align:center; color:black; height:24px; ">IL TUO BROWSER NON E' CONSIGLIATO PER RIPRODURRE QUESTO TIPO DI APPLICAZIONE, UTILIZZA CHROME O MOZILLA FIREFOX!</div>
+
+
+
+        <div style="display:none;">
+
+            <!-- Begin ShinyStat Free code -->
+
+		    <script type="text/javascript" language="JavaScript" src="http://codice.shinystat.com/cgi-bin/getcod.cgi?USER=EvanMarlowe"></script>
+
+		    <noscript>
+
+		    <a href="http://www.shinystat.com" target="_top">
+
+		    <img src="http://www.shinystat.com/cgi-bin/shinystat.cgi?USER=EvanMarlowe" alt="Counter free" border="0" /></a>
+
+		    </noscript>
+
+		    <!-- End ShinyStat Free code -->
+
+        </div>
+
+
+
+
+
+        <div id="curtain">
+
+            <div class="dipreHead"></div>
+
+            <div class="loadingText"></div>
+
+            <div class="percentage"></div>
+
+        </div>
+
+
+
+        <div id="nameForm">
+
+            <h1>INSERISCI IL TUO NOME</h1>
+
+            <p>Verr&agrave; utilizzato per l'inserimento in classifica, quindi sii originale!</p>
+
+            <input type="text" name="" id="" value="" maxlength="12"/>
+
+            <div class="guide">
+
+                <br />
+
+				<h1>DIPRE' CATAFRATT GAME</h1>
+
+                <p>Collega il personaggio della "saga Dipr&egrave;" al suo feticcio e accumula punti con le combo rapide!</p>
+
+                <img style="border:2px solid #ff6a00;" src="src/guide.jpg" alt="edoardocasella.it"/>
+
+            </div>
+
+        </div>
+
+
+
+        <div id="wrapper">
+
+            <div id="display">
+
+                <div class="header"><div class="gameLogo"></div></div>
+
+                <ul id="leftMenu">
+
+                    <li class="voiceMusic"><img src="src/icons/music.png" /><a href="#" class="musicControl">stop music</a></li>
+
+                    <li class="voiceTxt">
+
+                        <div class="rankButton"><a href="#">Classifica</a></div>
+
+                        <h1>Scorri la classifica dei primi 200</h1>
+
+                        <div id="tableCont" style="overflow:hidden; height:273px;">
+
+                        <table class="rankTable">
+
+                            <thead><tr><td>Pos.</td><td>Nome</td><td>Punti</td><td>Errori</td><td>Tempo</td></tr></thead>
+
+                            <tbody></tbody>
+
+                        </table>
+
+                        </div>
+
+                    </li>
+
+                </ul>
+
+                <canvas id="cv" height="510" width="500"></canvas>
+
+                <div class="rightAngle"></div>
+
+            </div>
+
+        </div>
+
+
+
+        <div id="leftCol">
+
+            <div id="rank">
+
+                <h1>Classifica</h1>
+
+                <p>SEO: Catafratt game, Andrea Diprè, html5, css3, edoardo casella, civile, peppe fetish, richard benson, giuseppe simone, peppe simone, monella, catafratto, sibaritico</p>
+
+            </div>
+
+            <div id="sponsors">
+
+                <h1>Sponsors:</h1>
+
+                <a href="https://www.facebook.com/Girasudfilm" target="_blank"><img src="src/sponsor/sp1.jpg" /></a>
+
+            </div>
+
+        </div>
+
+        
+
+        <div id="footer">
+
+            <div class="sponsors" style="float:left; margin-left:5px; margin-top:4px;">Free sponsors: <a href="https://www.facebook.com/Girasudfilm" target="_blank">GIRASUD FILM</a></div>
+
+                <div class="credits"><span>Tech: HTML5 canvas & CSS3 | </span><span>Free sounds by: <a href="http://www.freesfx.co.uk/" target="_blank">freesfx.co.uk</a> (thank you again) | Developed by <a href="http://www.edoardocasella.it" title="S. Edoardo Casella - CIVILE" alt="S. Edoardo Casella - CIVILE" target="_blank">Civile</a> | Catafratt game v.1, 2014</span></div>
+
+        </div>
+
+		
+
+    </body>
+
+
+
+</html>
